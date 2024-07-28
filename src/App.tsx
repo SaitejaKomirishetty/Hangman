@@ -5,6 +5,17 @@ import HangmanWord from './HangmanWord';
 import Keyboard from './Keyboard';
 
 function App() {
+    const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 768);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsSmallScreen(window.innerWidth < 768);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     const [wordToGuess] = useState(() => {
         return words[Math.floor(Math.random() * words.length)];
     });
@@ -54,8 +65,18 @@ function App() {
                 gap: '2rem',
                 margin: '0 auto',
                 alignItems: 'center',
+                overflowY: 'auto',
             }}
         >
+            <div style={{ fontSize: '6rem' }}>Hangman</div>
+            <div
+                style={{
+                    fontSize: isSmallScreen ? '1.5rem' : '2.5rem',
+                    whiteSpace: 'nowrap',
+                }}
+            >
+                Guess the correct word and save the man ↓
+            </div>
             <div style={{ fontSize: '2rem', textAlign: 'center' }}>
                 {isWinner && 'winner'}
                 {isLoser && 'Nice Try'}{' '}
@@ -63,21 +84,43 @@ function App() {
                     <button onClick={() => handleRestart()}>Restart</button>
                 )}
             </div>
-            <HangmanDrawing numberOfGuesses={incorrectLetters.length} />
-            <HangmanWord
-                reveal={isLoser}
-                guessedLetters={guessedLetters}
-                wordToGuess={wordToGuess}
-            />
-            <div style={{ alignSelf: 'stretch' }}>
-                <Keyboard
-                    disabled={isLoser || isWinner}
-                    activeLetters={guessedLetters.filter((letter) =>
-                        wordToGuess.includes(letter)
-                    )}
-                    inactiveLetters={incorrectLetters}
-                    addGuessedLetter={addGuessedLetter}
-                />
+            <div
+                style={{
+                    display: 'flex',
+                    width: '100%',
+                    gap: '5rem',
+                    flexDirection: isSmallScreen ? 'column' : 'row',
+                }}
+            >
+                <div
+                    style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                    }}
+                >
+                    <HangmanDrawing numberOfGuesses={incorrectLetters.length} />
+                    <HangmanWord
+                        reveal={isLoser}
+                        guessedLetters={guessedLetters}
+                        wordToGuess={wordToGuess}
+                    />
+                </div>
+                <div
+                    style={{
+                        alignSelf: 'stretch',
+                        width: '100%',
+                    }}
+                >
+                    <Keyboard
+                        disabled={isLoser || isWinner}
+                        activeLetters={guessedLetters.filter((letter) =>
+                            wordToGuess.includes(letter)
+                        )}
+                        inactiveLetters={incorrectLetters}
+                        addGuessedLetter={addGuessedLetter}
+                    />
+                </div>
             </div>
         </div>
     );
