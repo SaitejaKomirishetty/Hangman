@@ -68,10 +68,10 @@ function App() {
                 overflowY: 'auto',
             }}
         >
-            <div style={{ fontSize: '6rem' }}>Hangman</div>
+            <div style={{ fontSize: '5rem' }}>Hangman</div>
             <div
                 style={{
-                    fontSize: isSmallScreen ? '1.5rem' : '2.5rem',
+                    fontSize: isSmallScreen ? '1rem' : '2rem',
                     whiteSpace: 'nowrap',
                 }}
             >
