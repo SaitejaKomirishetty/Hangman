@@ -41,7 +41,7 @@ Make sure you have Node.js and npm installed on your machine.
     npm start
     ```
 
-4. Open your browser and navigate to `http://http://localhost:5173/Hangman/` to see the app.
+4. Open your browser and navigate to `http://localhost:5173/Hangman/` to see the app.
 
 ## Deployment
 
