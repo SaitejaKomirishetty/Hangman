@@ -2,20 +2,24 @@
 
 This is a simple Hangman game built with React. The game randomly selects a word from a list, and the player has to guess the letters of the word. The player wins if they guess the word correctly and loses if they make six incorrect guesses.
 
+You can try out the deployed version of the app here: [Hang Man](https://saitejakomirishetty.github.io/Hangman/)
+
+![Home section](/Images/image.png 'Home section')
+
 ## Features
 
-- Randomly selects a word from a list
-- Displays the Hangman drawing based on incorrect guesses
-- Reveals correctly guessed letters in the word
-- Disables already guessed letters on the keyboard
-- Displays a restart button after the game is over (win or lose)
-- Responsive design
+-   Randomly selects a word from a list
+-   Displays the Hangman drawing based on incorrect guesses
+-   Reveals correctly guessed letters in the word
+-   Disables already guessed letters on the keyboard
+-   Displays a restart button after the game is over (win or lose)
+-   Responsive design
 
 ## Technologies Used
 
-- React
-- TypeScript
-- CSS
+-   React
+-   TypeScript
+-   CSS
 
 ## Getting Started
 
@@ -26,17 +30,20 @@ Make sure you have Node.js and npm installed on your machine.
 ### Installation
 
 1. Clone the repository:
+
     ```sh
     git clone https://github.com/your-username/hangman-game.git
     cd hangman-game
     ```
 
 2. Install the dependencies:
+
     ```sh
     npm install
     ```
 
 3. Start the development server:
+
     ```sh
     npm start
     ```
@@ -50,6 +57,7 @@ This project is deployed on GitHub Pages. You can access the live version of the
 ### Steps to Deploy on GitHub Pages
 
 1. Add the following scripts to your `package.json`:
+
     ```json
     "homepage": "https://your-username.github.io/hangman-game",
     "scripts": {
@@ -59,6 +67,7 @@ This project is deployed on GitHub Pages. You can access the live version of the
     ```
 
 2. Install the `gh-pages` package:
+
     ```sh
     npm install --save gh-pages
     ```
@@ -70,13 +79,12 @@ This project is deployed on GitHub Pages. You can access the live version of the
 
 ## Project Structure
 
-- `App.tsx`: The main component that contains the game logic and state.
-- `HangmanDrawing.tsx`: Component for rendering the Hangman drawing based on the number of incorrect guesses.
-- `HangmanWord.tsx`: Component for displaying the word to guess with correctly guessed letters revealed.
-- `Keyboard.tsx`: Component for rendering the keyboard and handling letter guesses.
-- `wordList.json`: JSON file containing the list of words to be guessed.
+-   `App.tsx`: The main component that contains the game logic and state.
+-   `HangmanDrawing.tsx`: Component for rendering the Hangman drawing based on the number of incorrect guesses.
+-   `HangmanWord.tsx`: Component for displaying the word to guess with correctly guessed letters revealed.
+-   `Keyboard.tsx`: Component for rendering the keyboard and handling letter guesses.
+-   `wordList.json`: JSON file containing the list of words to be guessed.
 
 ## Contributing
 
 If you would like to contribute, please fork the repository and use a feature branch. Pull requests are welcome.
-
